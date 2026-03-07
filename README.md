@@ -78,7 +78,7 @@ rustup target add x86_64-unknown-redox
 Clone the repository and launch the system in QEMU:
 
 ```bash
-git clone https://github.com/yaannko/draco-os
+git clone https://github.com/XplnHUB/Draco-OS.git
 cd draco-os
 make qemu
 ```
