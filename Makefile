@@ -7,10 +7,10 @@ draco:
 	cd draco/draco_vision && cargo build
 
 redox:
-	cd redox && export M4=/opt/homebrew/opt/m4/bin/m4 && export PATH="/opt/homebrew/bin:$$PATH" && make all CONFIG_NAME=draco ARCH=x86_64 PODMAN_BUILD=0
+	cd redox && make all CONFIG_NAME=draco ARCH=x86_64 PODMAN_BUILD=0
 
 qemu:
-	cd redox && export M4=/opt/homebrew/opt/m4/bin/m4 && export PATH="/opt/homebrew/bin:$$PATH" && make qemu CONFIG_NAME=draco ARCH=x86_64 PODMAN_BUILD=0
+	cd redox && make qemu CONFIG_NAME=draco ARCH=x86_64 PODMAN_BUILD=0
 
 help:
 	@echo "Draco-OS Build System"
