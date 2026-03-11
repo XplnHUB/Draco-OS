@@ -1,0 +1,242 @@
+cd redox && make all CONFIG_NAME=draco ARCH=x86_64 PODMAN_BUILD=0
+make[1]: Entering directory '/home/titan/Desktop/Draco-OS/redox'
+env -u RUSTUP_TOOLCHAIN -u CC -u TARGET cargo build --manifest-path Cargo.toml --release --locked 
+    Finished `release` profile [optimized] target(s) in 0.32s
+mkdir -p build
+touch build/fstools.tag
+[1;36;49mBuilding relibc-install[0m
+rm -rf "prefix/x86_64-unknown-redox/relibc-install.partial" "prefix/x86_64-unknown-redox/relibc-install"
+mkdir "prefix/x86_64-unknown-redox/relibc-install.partial"
+cp -r "prefix/x86_64-unknown-redox/gcc-install/". "prefix/x86_64-unknown-redox/relibc-install.partial"
+cp -r "prefix/x86_64-unknown-redox/rust-install/". "prefix/x86_64-unknown-redox/relibc-install.partial"
+cp -r "prefix/x86_64-unknown-redox/clang-install/". "prefix/x86_64-unknown-redox/relibc-install.partial"
+rm -rf "prefix/x86_64-unknown-redox/relibc-install.partial/x86_64-unknown-redox/include/"*
+cp -r "prefix/x86_64-unknown-redox/gcc-install/x86_64-unknown-redox/include/c++" "prefix/x86_64-unknown-redox/relibc-install.partial/x86_64-unknown-redox/include/c++"
+export PATH="/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/bin:$PATH" && \
+export CARGO="env -u CARGO cargo" CI=1 COOKBOOK_CLEAN_BUILD=true COOKBOOK_CLEAN_TARGET=false COOKBOOK_VERBOSE=true COOKBOOK_NONSTOP=false && \
+./target/release/repo cook relibc
+DEBUG: using cached sysroot
++ export PATH=/home/titan/Desktop/Draco-OS/redox/bin:/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/sysroot/bin:/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/titan/.nvm/versions/node/v24.13.1/bin:/home/titan/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/titan/go/bin:/home/titan/go/bin
++ PATH=/home/titan/Desktop/Draco-OS/redox/bin:/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/sysroot/bin:/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/titan/.nvm/versions/node/v24.13.1/bin:/home/titan/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/titan/go/bin:/home/titan/go/bin
++ '[' '!' -z '' ']'
++ export CARGO_TARGET_DIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target
++ CARGO_TARGET_DIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target
++ export CPPFLAGS=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ CPPFLAGS=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ USER_LDFLAGS=
++ export 'LDFLAGS=-L/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib --static'
++ LDFLAGS='-L/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib --static'
++ '[' x86_64-unknown-redox '!=' x86_64-unknown-linux-gnu ']'
++ export PKG_CONFIG_ALLOW_CROSS=1
++ PKG_CONFIG_ALLOW_CROSS=1
++ export PKG_CONFIG_PATH=
++ PKG_CONFIG_PATH=
++ export PKG_CONFIG_LIBDIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib/pkgconfig
++ PKG_CONFIG_LIBDIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib/pkgconfig
++ export PKG_CONFIG_SYSROOT_DIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot
++ PKG_CONFIG_SYSROOT_DIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot
++ build_type=release
++ install_flags=--no-track
++ build_flags=--release
++ '[' '!' -z '' ']'
++ '[' '!' -z '' ']'
++ reexport_flags
++ target=x86_64_unknown_redox
++ export CFLAGS_x86_64_unknown_redox=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ CFLAGS_x86_64_unknown_redox=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ export CXXFLAGS_x86_64_unknown_redox=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ CXXFLAGS_x86_64_unknown_redox=-I/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/include
++ export 'LDFLAGS_x86_64_unknown_redox=-L/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib --static'
++ LDFLAGS_x86_64_unknown_redox='-L/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot/lib --static'
++ COOKBOOK_CARGO=/home/titan/Desktop/Draco-OS/redox/target/release/cookbook_redoxer
++ COOKBOOK_CARGO_FLAGS=(--locked)
++ COOKBOOK_CONFIGURE=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/configure
++ COOKBOOK_CONFIGURE_FLAGS=(--host="${GNU_TARGET}" --prefix="/usr" --disable-shared --enable-static)
++ COOKBOOK_MAKE=make
++ COOKBOOK_CMAKE=cmake
++ COOKBOOK_NINJA=ninja
++ COOKBOOK_CMAKE_FLAGS=(-DBUILD_SHARED_LIBS=False -DENABLE_SHARED=False -DENABLE_STATIC=True)
++ COOKBOOK_MESON=meson
++ COOKBOOK_MESON_FLAGS=(--buildtype release --wrap-mode nofallback -Ddefault_library=static -Dprefix=/usr)
++ COOKBOOK_AUTORECONF=autoreconf
++ COOKBOOK_MAKE_JOBS=8
++ '[' '' = /usr ']'
++ export 'CARGO=env -u CARGO cargo'
++ CARGO='env -u CARGO cargo'
++ make -C /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source -j8 DESTDIR=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/stage.tmp/usr install
+make[2]: Entering directory '/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source'
+rm -rf /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/include
+mkdir -p /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/include
+env -u CARGO cargo rustc --release -Z build-std=core,alloc,compiler_builtins --target=x86_64-unknown-redox -- --emit link=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/librelibc.a 
+rm -rf /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm.partial
+env -u CARGO cargo rustc --release --manifest-path src/crt0/Cargo.toml -Z build-std=core,alloc,compiler_builtins --target=x86_64-unknown-redox -- --emit obj=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crt0.o -C panic=abort 
+cp -r include/* /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/include
+mkdir -p /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox
+env -u CARGO cargo rustc --release --manifest-path src/crti/Cargo.toml -Z build-std=core,alloc,compiler_builtins --target=x86_64-unknown-redox -- --emit obj=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crti.o -C panic=abort 
+env -u CARGO cargo rustc --release --manifest-path src/crtn/Cargo.toml -Z build-std=core,alloc,compiler_builtins --target=x86_64-unknown-redox -- --emit obj=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crtn.o -C panic=abort 
+cp -r openlibm /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm.partial
+env -u CARGO cargo rustc --release --manifest-path ld_so/Cargo.toml -Z build-std=core,alloc,compiler_builtins --target=x86_64-unknown-redox -- --emit obj=/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/ld_so.o -C panic=abort 
+cp "openlibm/include"/*.h /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/include
+cp "openlibm/src"/*.h /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/include
+-e [0;36;49mWriting Header float[0m
+ERROR: Parsing crate `mod`:`src/header/float/mod.rs`:
+Error("expected path")
+Try running `rustc -Z parse-only src/header/float/mod.rs` to see a nicer error message
+ERROR: Couldn't generate bindings for src/header/float/mod.rs.
+make[2]: *** [Makefile:42: headers] Error 1
+make[2]: *** Waiting for unfinished jobs....
+mv /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm.partial /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/openlibm
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking    Blocking waiting for file lock on shared package cache
+ waiting for file lock on shared package cache
+    Blocking    Blocking    Blocking waiting for file lock on build directory
+ waiting for file lock on build directory
+ waiting for file lock on build directory
+    Blocking waiting for file lock on build directory
+   Compiling compiler_builtins v0.1.160 (/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/lib/rustlib/src/rust/library/core)
+   Compiling alloc v0.0.0 (/home/titan/Desktop/Draco-OS/redox/prefix/x86_64-unknown-redox/relibc-install.partial/lib/rustlib/src/rust/library/alloc)
+   Compiling crt0 v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/src/crt0)
+    Finished `release` profile [optimized] target(s) in 15.31s
+   Compiling crti v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/src/crti)
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crt0.o
+    Finished `release` profile [optimized] target(s) in 15.34s
+   Compiling ld_so v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/ld_so)
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crti.o
+    Finished `release` profile [optimized] target(s) in 15.38s
+   Compiling crtn v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/src/crtn)
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/ld_so.o
+    Finished `release` profile [optimized] target(s) in 15.41s
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/crtn.o
+   Compiling version_check v0.9.5
+   Compiling typenum v1.19.0
+   Compiling proc-macro2 v1.0.103
+   Compiling libc v0.2.177
+   Compiling quote v1.0.42
+   Compiling unicode-ident v1.0.22
+   Compiling autocfg v1.5.0
+   Compiling shlex v1.3.0
+   Compiling drm-sys v0.8.0
+   Compiling chrono-tz v0.10.4
+   Compiling libm v0.2.15
+   Compiling subtle v2.6.1
+   Compiling cfg-if v1.0.4
+   Compiling rand_core v0.6.4
+   Compiling cpufeatures v0.2.17
+   Compiling bitflags v2.10.0
+   Compiling base64ct v1.8.0
+   Compiling plain v0.2.3
+   Compiling siphasher v1.0.1
+   Compiling cc v1.1.22 (https://github.com/tea/cc-rs?branch=riscv-abi-arch-fix#588ceacb)
+   Compiling byteorder v1.5.0
+   Compiling log v0.4.29
+   Compiling scopeguard v1.2.0
+   Compiling generic-array v0.14.7
+   Compiling redox_syscall v0.7.3
+   Compiling phf_shared v0.12.1
+   Compiling object v0.36.7 (https://gitlab.redox-os.org/andypython/object#7270e3f0)
+   Compiling password-hash v0.5.0
+   Compiling lock_api v0.4.14
+   Compiling redox-path v0.3.1
+   Compiling ioslice v0.6.0
+   Compiling num-traits v0.2.19
+   Compiling phf v0.12.1
+   Compiling generic-rt v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/generic-rt)
+   Compiling memchr v2.7.6
+   Compiling spin v0.9.8
+   Compiling rand_jitter v0.4.0
+   Compiling syn v2.0.110
+   Compiling rand_xorshift v0.3.0
+   Compiling rand v0.8.5
+   Compiling dlmalloc v0.2.8 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/dlmalloc-rs)
+   Compiling posix-regex v0.1.4
+   Compiling unicode-width v0.1.14
+   Compiling libredox v0.1.14
+   Compiling relibc v0.2.5 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source)
+   Compiling chrono v0.4.42
+   Compiling cbitset v0.2.0
+   Compiling redox-ioctl v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/redox-ioctl)
+   Compiling redox_event v0.4.6
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling inout v0.1.4
+   Compiling digest v0.10.7
+   Compiling cipher v0.4.4
+   Compiling sha2 v0.10.9
+   Compiling hmac v0.12.1
+   Compiling blake2 v0.10.6
+   Compiling md-5 v0.10.6
+   Compiling salsa20 v0.10.2
+   Compiling blowfish v0.9.1
+   Compiling argon2 v0.5.3
+   Compiling pbkdf2 v0.12.2
+   Compiling sha-crypt v0.5.0
+   Compiling scrypt v0.11.0
+   Compiling bcrypt-pbkdf v0.10.0
+   Compiling scroll_derive v0.11.1
+   Compiling scroll v0.11.0
+   Compiling goblin v0.7.1
+   Compiling redox-rt v0.1.0 (/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source/redox-rt)
+warning: unused macro definition: `path_from_c_str`
+  --> src/platform/redox/mod.rs:91:14
+   |
+91 | macro_rules! path_from_c_str {
+   |              ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_macros)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `actual_posix_cmsg_data_len` is never read
+   --> src/platform/redox/socket.rs:432:17
+    |
+432 |         let mut actual_posix_cmsg_data_len: usize = 0;
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `current_sigmask` is never read
+   --> src/pthread/mod.rs:113:13
+    |
+113 |     let mut current_sigmask = 0_u64;
+    |             ^^^^^^^^^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: `relibc` (lib) generated 3 warnings
+    Finished `release` profile [optimized] target(s) in 36.39s
+./renamesyms.sh "/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/librelibc.a" "/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/deps/"
+./stripcore.sh "/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/librelibc.a"
+touch /home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build/target/x86_64-unknown-redox/release/librelibc.a
+make[2]: Leaving directory '/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source'
+redoxer env: exit status: 2
+[1m[38;5;196mcook relibc - failed [39m[m
+failed to build: "failed to run cd \"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build\" && COOKBOOK_BUILD=\"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/build\" COOKBOOK_HOST_TARGET=\"x86_64-unknown-linux-gnu\" COOKBOOK_MAKE_JOBS=\"12\" COOKBOOK_NAME=\"relibc\" COOKBOOK_RECIPE=\"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc\" COOKBOOK_REDOXER=\"/home/titan/Desktop/Draco-OS/redox/target/release/cookbook_redoxer\" COOKBOOK_ROOT=\"/home/titan/Desktop/Draco-OS/redox\" COOKBOOK_SOURCE=\"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/source\" COOKBOOK_STAGE=\"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/stage.tmp\" COOKBOOK_SYSROOT=\"/home/titan/Desktop/Draco-OS/redox/recipes/core/relibc/target/x86_64-unknown-redox/sysroot\" COOKBOOK_VERBOSE=\"1\" TARGET=\"x86_64-unknown-redox\" \"/home/titan/Desktop/Draco-OS/redox/target/release/cookbook_redoxer\" \"env\" \"bash\" \"-ex\": exited with status exit status: 1"
+make[1]: *** [mk/prefix.mk:52: prefix/x86_64-unknown-redox/relibc-install] Error 1
+make[1]: Leaving directory '/home/titan/Desktop/Draco-OS/redox'
+make: *** [Makefile:10: redox] Error 2
