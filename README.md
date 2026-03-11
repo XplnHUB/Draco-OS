@@ -1,11 +1,6 @@
 # Draco-OS
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Kernel-Redox-red?style=for-the-badge&logo=rust" alt="Redox Kernel">
-  <img src="https://img.shields.io/badge/Language-Rust-black?style=for-the-badge&logo=rust" alt="Rust">
-  <img src="https://img.shields.io/badge/Status-Experimental-orange?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
-</p>
+
 
 **Draco-OS** is a next-generation, AI-first microkernel operating system. Built as a sophisticated fork of [Redox OS](https://redox-os.org), Draco-OS integrates advanced AI capabilities directly into the system architecture, enabling a seamless, voice-dictated, and vision-aware computing experience.
 
