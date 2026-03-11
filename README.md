@@ -54,6 +54,16 @@ graph TD
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="assets/screen_login.png" alt="Draco-OS Login" width="45%">
+  &nbsp;&nbsp;
+  <img src="assets/screen_desktop.png" alt="Draco-OS Desktop UI" width="45%">
+</p>
+
+---
+
 ## Quick Start
 
 ### 1. Prerequisites (Ubuntu/Debian/Pop!_OS)
@@ -87,9 +97,10 @@ Once booted, type `draco_voice &` in the terminal to initialize the AI listener.
 | Phase | Milestone | Description | Status |
 | :--- | :--- | :--- | :--- |
 | Phase 1 | Foundational Voice | Wake-word detection + basic STT command execution. | Done |
-| Phase 2 | Contextual Vision | Framebuffer capture + Mistral.rs vision integration. | In Progress |
-| Phase 3 | Neural Optimization | Real-time code refactoring agents within the IDE. | Planned |
-| Phase 4 | Hardware Expansion | Native support for Raspberry Pi 5 and ARM64. | Planned |
+| Phase 2 | Custom Desktop Environment | Developed `draco_shell` with system status and teal UI accents. | Done |
+| Phase 3 | Contextual Vision | Framebuffer capture + Mistral.rs vision integration. | In Progress |
+| Phase 4 | Neural Optimization | Real-time code refactoring agents within the IDE. | Planned |
+| Phase 5 | Hardware Expansion | Native support for Raspberry Pi 5 and ARM64. | Planned |
 
 ---
 
