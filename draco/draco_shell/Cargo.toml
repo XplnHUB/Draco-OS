@@ -7,7 +7,7 @@ edition = "2024"
 orbclient = "0.3"
 orbfont = "0.1"
 orbimage = "0.1"
-event = "0.2"
+draco_ipc = { path = "../draco_ipc" }
 libredox = "0.1"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"

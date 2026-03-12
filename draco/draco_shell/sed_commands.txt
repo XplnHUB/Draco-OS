@@ -1,0 +1,1 @@
+s/key_event.character == 'u'/key_event.character == 'u' || key_event.character == 'U'/g

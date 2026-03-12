@@ -8,6 +8,24 @@ pub enum DracoMessage {
     
     /// User facial recognition authentication status (sent by draco_face to draco_core)
     FaceDetected(bool),
+
+    /// User voice recognition authentication status (sent by draco_voice to draco_core)
+    VoiceDetected(bool),
+
+    /// Request to register a new face profile (sent by shell/core to draco_face)
+    RegisterFace,
+
+    /// Request to register a new voice profile (sent by shell/core to draco_voice)
+    RegisterVoice,
+
+    /// Status of a biometric registration process
+    BiometricStatus(String),
+    
+    /// Command to lock the screen UI (sent by core to shell)
+    LockScreen,
+
+    /// Command to unlock the screen UI (sent by core to shell)
+    UnlockScreen,
     
     /// Request basic system analytics (sent by draco_shell or others to draco_core)
     SystemStatusRequest,

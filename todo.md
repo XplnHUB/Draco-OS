@@ -14,18 +14,18 @@
 - [x] Add aesthetic polish (rounded corners, shadows, animations, Pop-style theme).
 
 ## Phase 3: Identity & Biometric Security (Local)
-- [ ] Integrate local webcam capture for face registration.
-- [ ] Implement local face authentication service (`Draco-face`).
-- [ ] Develop voiceprint registration module.
-- [ ] Implement local voice authentication service (`Draco-voice`).
-- [ ] Build the secure lock/unlock system tying into the biometric services.
+- [x] Integrate local webcam capture for face registration.
+- [x] Implement local face authentication service (`Draco-face`).
+- [x] Develop voiceprint registration module.
+- [x] Implement local voice authentication service (`Draco-voice`).
+- [x] Build the secure lock/unlock system tying into the biometric services.
 
 ## Phase 4: Voice Interface & Command Engine
 - [ ] Integrate always-listening wake-word detection ("Draco").
 - [ ] Build the natural language command parser.
 - [ ] Implement system control commands (shutdown, reboot, sleep, status queries).
 - [ ] Implement app launcher commands (Minecraft, Firefox, Code).
-- [ ] Implement file-system action commands (open, search).
+- [ ] Implement file-system action commands (open, search).+--
 
 ## Phase 5: Screen-Aware Intelligence
 - [ ] Develop the screenshot capture service (`Draco-vision`).

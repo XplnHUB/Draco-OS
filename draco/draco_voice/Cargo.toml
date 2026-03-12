@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 whisper-rs = "0.12"
+draco_ipc = { path = "../draco_ipc" }
