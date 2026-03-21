@@ -1503,6 +1503,7 @@ dependencies = [
 name = "draco_face"
 version = "0.1.0"
 dependencies = [
+ "anyhow",
  "draco_ipc",
  "image 0.24.9",
  "nokhwa",
@@ -1559,6 +1560,8 @@ dependencies = [
  "cpal",
  "draco_ipc",
  "hound",
+ "serde",
+ "serde_json",
  "whisper-rs",
 ]
 
