@@ -1,12 +1,12 @@
 use orbclient::Color;
 
-pub const BAR_COLOR: Color = Color::rgba(25, 30, 35, 230); // Deep dark with transparency
-pub const BAR_HIGHLIGHT_COLOR: Color = Color::rgba(0, 150, 150, 255); // Teal accent
-pub const TEXT_COLOR: Color = Color::rgb(220, 220, 220);
+pub const BAR_COLOR: Color = Color::rgba(18, 22, 28, 245); // Sleeker dark
+pub const BAR_HIGHLIGHT_COLOR: Color = Color::rgba(0, 220, 220, 255); // Brighter Teal
+pub const TEXT_COLOR: Color = Color::rgb(200, 210, 220);
 pub const TEXT_HIGHLIGHT_COLOR: Color = Color::rgb(255, 255, 255);
 
-pub const DRACO_ORANGE: Color = Color::rgb(255, 120, 0);
-pub const DRACO_TEAL: Color = Color::rgb(0, 200, 200);
+pub const DRACO_ORANGE: Color = Color::rgb(255, 140, 20); // More vibrant
+pub const DRACO_TEAL: Color = Color::rgb(0, 210, 210);
 
 pub const ICON_SIZE: u32 = 48;
 pub const BAR_HEIGHT: u32 = 48;

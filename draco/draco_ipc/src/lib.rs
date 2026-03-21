@@ -47,8 +47,46 @@ pub enum DracoMessage {
     Shutdown,
 }
 
-/// Helper structures and tools to create standard IPC over Unix sockets or TCP/Redox channels.
+/// Helper structures and tools to create standard IPC over Unix sockets.
 pub mod channel {
-    // This is a placeholder for async networking logic. In Redox, standard sockets and chan:
-    // are common, but tokio is available. We will refine this once we begin the actual services.
+    use super::DracoMessage;
+    use std::os::unix::net::{UnixListener, UnixStream};
+    use std::io::{Read, Write};
+    use serde_json;
+
+    pub const SHELL_SOCKET_PATH: &str = "/tmp/draco_shell.sock";
+    pub const FACE_SOCKET_PATH: &str = "/tmp/draco_face.sock";
+    pub const VOICE_SOCKET_PATH: &str = "/tmp/draco_voice.sock";
+
+    pub fn send_message(path: &str, msg: &DracoMessage) -> std::io::Result<()> {
+        let mut stream = UnixStream::connect(path)?;
+        let serialized = serde_json::to_string(msg).map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+        stream.write_all(serialized.as_bytes())?;
+        stream.write_all(b"\n")?;
+        Ok(())
+    }
+
+    pub fn listen<F>(path: &str, mut handler: F) -> std::io::Result<()> 
+    where F: FnMut(DracoMessage) 
+    {
+        let _ = std::fs::remove_file(path);
+        let listener = UnixListener::bind(path)?;
+        
+        for stream in listener.incoming() {
+            match stream {
+                Ok(mut s) => {
+                    let mut buffer = String::new();
+                    if let Ok(_) = s.read_to_string(&mut buffer) {
+                        for line in buffer.lines() {
+                            if let Ok(msg) = serde_json::from_str::<DracoMessage>(line) {
+                                handler(msg);
+                            }
+                        }
+                    }
+                }
+                Err(e) => eprintln!("IPC Error: {}", e),
+            }
+        }
+        Ok(())
+    }
 }
