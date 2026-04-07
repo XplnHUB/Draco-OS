@@ -1,60 +1,88 @@
-# Draco-OS Progress Report
+# 🐉 Draco-OS: The Journey to a Proper OS
 
-This document outlines the milestones achieved so far in the development of **Draco-OS** and the current capabilities of the system.
-
-## 🛠️ Work Accomplished So Far
-
-Since the inception of the project, the following key tasks have been completed:
-
-### 1. Environment & Build System
-*   **System Dependencies**: Successfully identified and installed all required build tools (`build-essential`, `nasm`, `xorriso`, `qemu`, etc.).
-*   **Rust Toolchain Configuration**: Configured the environment for Rust Nightly and added the `x86_64-unknown-redox` target.
-*   **Makefile Stabilization**: Fixed compatibility issues in the root `Makefile` to ensure smooth building on Linux environments (tested on Pop!_OS).
-*   **Relibc Fixes**: Debugged and resolved critical compilation errors in the `relibc` library, which is a core component of the Redox/Draco ecosystem.
-
-### 2. Core OS Identity
-*   **Rebranding**: Renamed system identifiers from "Redox" to **"Draco-OS"**.
-*   **Custom Boot Screen**: Implemented custom branding for the boot process.
-*   **User Identity**: Established initial structures for user profiles and automatic login.
-
-### 3. Project Architecture
-*   **Microservice Structure**: Organized the `draco/` directory into modular Rust services:
-    *   `draco_core`: Central system logic.
-    *   `draco_voice`: Voice recognition and wake-word service (powered by `whisper-rs`).
-    *   `draco_vision`: Screen analysis service (powered by `mistral.rs`).
-    *   `draco_shell`: Custom desktop environment logic.
-*   **IPC Communication**: Designed the backbone for Inter-Process Communication (IPC) to allow these services to interact seamlessly.
-
-### 4. Repository Management
-*   **Git Cleanup & Conflict Resolution**: Resolved complex merge conflicts and optimized the `.gitignore` for a cleaner development experience.
-*   **PR Preparation**: Standardized the codebase to be ready for Pull Requests and public contributions.
-
-### 5. Custom Desktop Environment
-*   **Draco Shell**: Developed `draco_shell`, a lightweight Rust-based custom desktop environment with a modern status bar and app launcher logic.
-*   **System Integration**: Reconfigured OS build scripts to remove default UI components (Cosmic) and correctly pack and boot `draco_shell` on top of the `orbital` display manager.
+This document tracks the evolution of **Draco-OS**, a privacy-first, AI-native operating system built on the Redox microkernel. It outlines our current standing, what’s ready for use, and the road ahead to becoming a fully realized "proper" operating system.
 
 ---
 
-## 🚀 Current Capabilities
+## 📊 Current Progress Overview
 
-Draco-OS is currently in an **experimental state** with the following active features:
+We have successfully laid the foundation. The "skeleton" of the OS is alive, breathing, and branded. We are now moving from **Infrastructure** to **Intelligence**.
 
-*   ✅ **Stable Booting**: The system successfully compiles and boots into the Redox-based kernel using QEMU.
-*   ✅ **Identity Awareness**: The OS identifies itself as "Draco-OS" throughout the system interface.
-*   ✅ **Custom UI**: The system successfully boots directly into the `draco_shell` desktop environment.
-*   ✅ **AI Service Foundation**: The `draco_voice` and `draco_core` services are integrated into the build-std process and can be launched manually.
-*   ✅ **Local AI Integration**: The project is pre-configured with `whisper-rs` for local, private speech-to-text processing (implementation in early stages).
-*   ✅ **Modular Design**: New AI features can be added as isolated user-space daemons without compromising kernel stability.
-*   ✅ **Development-Ready**: A standardized build process allows developers to clone and run the OS with a single `make qemu` command.
+```mermaid
+pie title "Implementation Progress"
+    "Core OS & Branding" : 25
+    "Desktop Shell & UI" : 20
+    "IPC & Microservices" : 15
+    "AI Foundations" : 10
+    "Remaining (Vision, Voice, Security)" : 30
+```
+
+---
+
+## ✅ What's Implemented (The Foundation)
+
+### 1. Core OS & Identity
+- [x] **Redox Kernel Base**: Stable microkernel architecture inherited and optimized.
+- [x] **Draco Branding**: System-wide rebranding (Bootloader, Kernel logs, ASCII art).
+- [x] **Build System**: Robust `Makefile` and Rust toolchain configuration for `x86_64-unknown-redox`.
+- [x] **Relibc Stability**: Critical fixes implemented in the C library to support modern Rust binaries.
+- [x] **User Identity**: Initial structures for the primary user and auto-login mechanisms.
+
+### 2. Desktop Environment (`draco_shell`)
+- [x] **Custom Shell**: A lightweight, Rust-based desktop environment replacing the default Cosmic UI.
+- [x] **Status Bar**: Real-time system monitoring (CPU, RAM, Battery, Network).
+- [x] **App Launcher**: Logic for mapping and launching system applications.
+- [x] **Teal/Orange Aesthetics**: Initial implementation of the "Pop-style" modern theme with rounded corners.
+
+### 3. AI & Service Architecture
+- [x] **Microservice Blueprint**: Modular design with `draco_core`, `voice`, `vision`, and `face`.
+- [x] **IPC Backbone**: Communication protocol allowing services to talk to each other safely.
+- [x] **Local AI Integration**: `whisper-rs` (Speech-to-Text) and `mistral.rs` (Vision/LLM) integrated into the build-std process.
 
 ---
 
-## 📈 Next Steps
+## 🚀 The Remaining Journey (Towards a "Proper OS")
 
-*   [ ] Complete the implementation of the `draco_voice` wake-word listener.
-*   [x] Develop the Rust-based desktop shell for the GUI.
-*   [ ] Integrate local face authentication via `draco_face`.
-*   [ ] Enable screen-aware vision processing.
+To reach a "Daily Driver" status, we are actively working on the following phases:
+
+### 🔊 Phase A: The Voice-First Interface
+- [ ] **Always-On Wake Word**: Reliable "Draco" detection with <500ms latency.
+- [ ] **NLP Command Parser**: Turning "Open Firefox" or "Show my RAM" into executable OS actions.
+- [ ] **Audio Feedback**: System-wide sound effects and local TTS (Text-to-Speech) responses.
+
+### 👁️ Phase B: Visual & Biometric Security
+- [ ] **`draco_face`**: Local facial recognition for login and presence-based locking.
+- [ ] **`draco_vision`**: Screen-aware processing. The OS should "see" your active windows to provide context.
+- [ ] **Voice Biometrics**: Ensuring only your voice can execute sensitive commands like `reboot` or `delete`.
+
+### 🛠️ Phase C: System Maturity & Polish
+- [ ] **Advanced Power Management**: Sleep/Hibernate triggered by inactivity or low battery.
+- [ ] **Unified Settings App**: A GUI to manage AI models, privacy levels, and appearance.
+- [ ] **Hardware Expansion**: Moving beyond QEMU to native hardware support (starting with ThinkPads and Pi 5).
 
 ---
-*Last Updated: 2026-03-12*
+
+## 📉 Summary of Completion
+
+| Category | Status | Completion % |
+| :--- | :--- | :--- |
+| **Kernel & Boot** | 🟢 Stable | 95% |
+| **Branding & Identity** | 🟢 Done | 100% |
+| **Desktop UI (Shell)** | 🟡 Functional | 60% |
+| **IPC & Framework** | 🟡 Functional | 75% |
+| **Voice Interaction** | 🟠 Experimental | 20% |
+| **Vision & Biometrics** | 🔴 Planned | 5% |
+| **System Optimization**| 🔴 Planned | 10% |
+
+---
+
+## ⚡ Next Immediate Steps
+1.  **Refine `draco_voice`**: Transition from manual launch to a background daemon with wake-word detection.
+2.  **Implement `draco_face`**: Hook into the `orbital` window manager for biometric unlock.
+3.  **Visual Polish**: Add animations to the `draco_shell` app launcher.
+
+---
+> "The future of computing isn't just about what you click, but what you say and what the system understands." 
+> — *The Draco-OS Philosophy*
+
+*Document updated: 2026-04-07*
