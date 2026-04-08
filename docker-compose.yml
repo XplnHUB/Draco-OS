@@ -1,0 +1,16 @@
+services:
+  draco-os:
+    build: .
+    platform: linux/amd64
+    container_name: draco-os-builder
+    volumes:
+      - .:/workspace
+      - cargo-cache:/root/.cargo/registry
+      - cargo-git-cache:/root/.cargo/git
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+
+volumes:
+  cargo-cache:
+  cargo-git-cache:

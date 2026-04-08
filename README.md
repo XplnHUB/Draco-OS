@@ -79,6 +79,45 @@ rustup component add rust-src rustfmt clippy
 rustup target add x86_64-unknown-redox
 ```
 
+### 1.5 Docker Development (Recommended for Mac/Windows or non-sudo Users)
+If you are on macOS, Windows, or do not have `sudo` access on your server, use Docker to build the project.
+
+```bash
+# Build the dev environment
+docker compose build
+
+# Enter the container
+docker compose run --rm draco-os bash
+
+# Inside the container, you can run:
+make all
+```
+
+### 1.6 Publishing to Docker Hub
+To use this image on other servers (like your Ubuntu VPS), you can publish it to Docker Hub:
+
+1. **Log in to Docker Hub**:
+   ```bash
+   docker login
+   ```
+
+2. **Tag the image**:
+   ```bash
+   # Using your username codemaverick143
+   docker tag draco-os-draco-os:latest codemaverick143/draco-os:latest
+   ```
+
+3. **Push the image**:
+   ```bash
+   docker push codemaverick143/draco-os:latest
+   ```
+
+4. **Pull on the server**:
+   ```bash
+   # On your Ubuntu server
+   docker pull codemaverick143/draco-os:latest
+   ```
+
 ### 2. Build and Boot
 Clone the repository and launch the system in QEMU:
 

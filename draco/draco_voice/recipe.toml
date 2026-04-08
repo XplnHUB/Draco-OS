@@ -1,0 +1,5 @@
+[build]
+template = "cargo"
+
+[source]
+path = "../../draco/draco_voice"
