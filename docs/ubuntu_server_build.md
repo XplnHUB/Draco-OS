@@ -14,7 +14,7 @@ This guide provides step-by-step instructions for building Draco-OS on a clean U
 Update your system and install the essential build tools:
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86
 
 # Install 'just' (command runner) - Required for COSMIC components

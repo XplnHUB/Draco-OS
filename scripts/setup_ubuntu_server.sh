@@ -9,7 +9,7 @@ echo "--- Starting Draco-OS Setup for Ubuntu Server ---"
 
 # 1. Update and install base dependencies
 echo "Installing base system dependencies..."
-sudo apt update && sudo apt upgrade -y
+sudo apt update
 sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86 fuse3 libfuse3-dev
 
 # 2. Install Rust Nightly
