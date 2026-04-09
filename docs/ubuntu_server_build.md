@@ -15,16 +15,7 @@ Update your system and install the essential build tools:
 
 ```bash
 sudo apt update
-sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86
-
-# Install 'just' (command runner) - Required for COSMIC components
-if ! command -v just &> /dev/null; then
-  # Option 1: Using the official installer (Recommended for servers)
-  curl --proto '=https' --tlsv1.2 -sSf https://just.sh/install.sh | bash -s -- --to "$HOME/.local/bin"
-  # Add to PATH
-  export PATH="$PATH:$HOME/.local/bin"
-  echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
-fi
+sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86 just
 ```
 
 ## 3. Install Rust (Nightly)
