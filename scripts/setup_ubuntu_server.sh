@@ -10,13 +10,9 @@ echo "--- Starting Draco-OS Setup for Ubuntu Server ---"
 # 1. Update and install base dependencies
 echo "Installing base system dependencies..."
 sudo apt update
-sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86 fuse3 libfuse3-dev
+sudo apt install -y build-essential git curl clang llvm nasm xorriso grub-pc-bin qemu-system-x86 fuse3 libfuse3-dev just
 
-# 2. Install 'just' (binary version to bypass compilation errors)
-echo "Installing 'just' command runner..."
-curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | sudo bash -s -- --to /usr/local/bin
-
-# 3. Install Rust Nightly
+# 2. Install Rust Nightly
 if ! command -v rustup &> /dev/null; then
     echo "Installing Rust..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
