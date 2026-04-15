@@ -1,0 +1,12 @@
+[package]
+name = "draco_executor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+draco_intent = { path = "../draco_intent" }
+draco_ipc = { path = "../draco_ipc" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
